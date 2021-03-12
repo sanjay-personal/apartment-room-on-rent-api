@@ -18,7 +18,6 @@ npm install
 If u face powershell error execution of scripts disabled then execute the following command ::
 Set-ExecutionPolicy -Scope "CurrentUser" -ExecutionPolicy "RemoteSigned"
 
-<<<<<<< HEAD
 execution of scripts disabled then execute the following command ::
 Set-ExecutionPolicy -Scope "CurrentUser" -ExecutionPolicy "RemoteSigned"
 
@@ -38,6 +37,5 @@ npm start
 by default port no is 3000
 it is visible in bin>www line no 15
 var port = normalizePort(process.env.PORT || '3000');
-=======
 hello
->>>>>>> d04ced4d894c34a6d56aaf6fc579a84ea66a36dc
+dfsd
