@@ -15,7 +15,7 @@ cd myapp
 4) If you’re unfamiliar with terminal commands, this one puts you inside of the myapp directory
 npm install
 
-If u face powershell error 
-
-execution of scripts disabled then execute the following command ::
+If u face powershell error execution of scripts disabled then execute the following command ::
 Set-ExecutionPolicy -Scope "CurrentUser" -ExecutionPolicy "RemoteSigned"
+
+hello
