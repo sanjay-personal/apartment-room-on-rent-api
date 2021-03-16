@@ -37,5 +37,3 @@ npm start
 by default port no is 3000
 it is visible in bin>www line no 15
 var port = normalizePort(process.env.PORT || '3000');
-hello
-dfsd
