@@ -9,7 +9,17 @@ var getCountryListQuery = function getCountryListQuery() {
 }
 var getStateListQuery = function getStateListQuery(country_id) {
   return new Promise((resolve, reject) => {
+    console.log("counry",country_id)
     con.con.query("SELECT * FROM state_master where country_id=" + country_id, function (err, result, fields) {
+      if (err) throw err;
+      resolve(result)
+    });
+  });
+}
+
+var getDistrictListQuery = function getDistrictListQuery(country_id,state_id) {
+  return new Promise((resolve, reject) => {
+    con.con.query("SELECT * FROM district_master where country_id=" +  country_id + " and " +"state_id=" + state_id, function (err, result, fields) {
       if (err) throw err;
       resolve(result)
     });
@@ -18,7 +28,8 @@ var getStateListQuery = function getStateListQuery(country_id) {
 
 module.exports = {
   getCountryListQuery: getCountryListQuery,
-  getStateListQuery: getStateListQuery
+  getStateListQuery: getStateListQuery,
+  getDistrictListQuery: getDistrictListQuery
 
 
 }
