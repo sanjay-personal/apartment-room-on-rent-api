@@ -36,7 +36,6 @@ var stateList = function getStateList(data) {
         try {
 
             console.log("data",data)
-            console.log("country",data.countryId)
          
             let stateList = await masterRepo.getStateListQuery(data.countryId)
             if(stateList!=null && stateList!=undefined && stateList.length > 0)
@@ -55,11 +54,16 @@ var stateList = function getStateList(data) {
 
 }
 
-var districtService = function getDistrictList(countryId,stateId) {
+var districtList = function getDistrictList(data) {
 
     return new Promise(async (resolve, reject) => {
         try {
-            let districtList = await masterRepo.getDistrictListQuery(countryId,stateId)
+            console.log("data",data)
+            console.log("country",data.countryId)
+            console.log("country",data.countryId)
+
+
+            let districtList = await masterRepo.getDistrictListQuery(data.countryId,data.stateId)
             
             if(districtList!=null && districtList!=undefined && districtList.length > 0)
             {
@@ -77,10 +81,35 @@ var districtService = function getDistrictList(countryId,stateId) {
 
 }
 
+
+var areaList = function getareaList(data) {
+
+    return new Promise(async (resolve, reject) => {
+        try {
+            let areaList = await masterRepo.getareaListQuery(data.countryId,data.stateId,data.districtId)
+            
+            if(areaList!=null && areaList!=undefined && areaList.length > 0)
+            {
+            resolve(areaList)
+            }
+            else{
+                reject("Invalid input")
+            }
+        } catch (err) {
+            console.log("error", err)
+            return err
+        }
+
+    })
+
+}
+
+
 module.exports = {
     countryList: countryService,
     stateList: stateList,
-    districtList: districtService               
+    districtList: districtList,
+    areaList:areaList               
 
 }
 

@@ -10,21 +10,16 @@ router.get('/country', async function (req, res, next) {
   }
   catch (err) {
     console.log("error", err)
-    return err
+    if(err==="Invalid input")
+    {
+    res.send({  status: { code: "error", message: err } });
+    }
+    else{
+      
+    res.send({ status: { code: "error", message: "error" } });
+    }
   }
 });
-
-// router.get('/state/:countryId', async function (req, res, next) {
-//   try {
-//     let stateList = await masterService.stateList(req.params.countryId)
-//     res.send({ primary: stateList, status: { code: "success", message: "success" } });
-//   }
-//   catch (err) {
-//     console.log("error", err)
-//     return err
-//   }
-// });
-
 
 router.get('/state', async function (req, res, next) {
   try {
@@ -45,14 +40,15 @@ router.get('/state', async function (req, res, next) {
   }
 });
 
-router.get('/district/:countryId/:stateId' ,async function (req, res, next) {
+
+router.get('/district', async function (req, res, next) {
   try {
-    let districtList = await masterService.districtList(req.params.countryId, req.params.stateId)
+   
+    let districtList = await masterService.districtList(req.query)
     res.send({ primary: districtList, status: { code: "success", message: "success" } });
   }
   catch (err) {
     console.log("error", err)
-    
     if(err==="Invalid input")
     {
     res.send({  status: { code: "error", message: err } });
@@ -63,5 +59,25 @@ router.get('/district/:countryId/:stateId' ,async function (req, res, next) {
     }
   }
 });
+
+router.get('/area', async function (req, res, next) {
+  try {
+   
+    let areaList = await masterService.areaList(req.query)
+    res.send({ primary: areaList, status: { code: "success", message: "success" } });
+  }
+  catch (err) {
+    console.log("error", err)
+    if(err==="Invalid input")
+    {
+    res.send({  status: { code: "error", message: err } });
+    }
+    else{
+      
+    res.send({ status: { code: "error", message: "error" } });
+    }
+  }
+});
+
 
 module.exports = router;
