@@ -37,3 +37,15 @@ npm start
 by default port no is 3000
 it is visible in bin>www line no 15
 var port = normalizePort(process.env.PORT || '3000');
+
+to work 'proccess' key install
+
+-->npm install dotenv
+---> create .env file below we have a eg
+----> DB_HOST = 127.0.0.1
+DB_USER = frndsprjct
+DB_PASSWORD = vijaya1234
+DB_PORT = 3306
+DB_NAME = apartments
+
+eg: process.env.DB_NAME

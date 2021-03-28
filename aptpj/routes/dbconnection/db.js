@@ -2,8 +2,8 @@ var mysql = require('mysql');
 
 var con = mysql.createConnection({
     host: "localhost",
-    user: "root",
-    password: "9703606364@p",
+    user: "frndsprjct",
+    password: "vijaya1234",
     database: "apartments"
 });
 
@@ -12,7 +12,7 @@ con.connect(function (err) {
         console.log("Not Connected")
         throw err;
     } else {
-        console.log("Connected apartments");
+        console.log("Connected",process.env.DB_NAME);
     }
 });
 
